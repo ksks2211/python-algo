@@ -1,7 +1,7 @@
 import random
 
 
-def is_sorted(arr):
+def is_sorted(arr:int) -> bool:
     size = len(arr)
     if size < 2:
         return True
@@ -11,6 +11,6 @@ def is_sorted(arr):
     return True
 
 
-def random_integers(max, size):
+def random_integers(max:int, size:int) -> list[int]:
     for _ in range(size):
         yield random.randint(0, max)
