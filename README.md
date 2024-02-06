@@ -1,3 +1,3 @@
-# algorithm
+# python-algo
 
-`algorithm` is a Python library designed for personal use to facilitate learning, testing, and experimenting with algorithm and data structure.
+`python-algo` is a Python library designed for personal use to facilitate learning, testing, and experimenting with algorithm and data structure.
