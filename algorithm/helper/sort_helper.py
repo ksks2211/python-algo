@@ -11,6 +11,6 @@ def is_sorted(arr:int) -> bool:
     return True
 
 
-def random_integers(max:int, size:int) -> list[int]:
+def random_integers(max:int, size:int):
     for _ in range(size):
         yield random.randint(0, max)
