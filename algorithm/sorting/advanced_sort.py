@@ -47,4 +47,3 @@ def quick_sort(arr):
     
     return quick_sort(left)+middle+quick_sort(right)
   
-  

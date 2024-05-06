@@ -1,6 +1,8 @@
 {
   "cSpell.words": [
     "networkx",
-    "pathfinding"
+    "nlogn",
+    "pathfinding",
+    "popleft"
   ]
 }

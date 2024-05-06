@@ -49,5 +49,3 @@ def selection_sort(arr):
     arr[i], arr[min_idx] = arr[min_idx], arr[i]
   return arr    
       
-      
-  
