@@ -1,4 +1,4 @@
-from algorithm.recursion import basic
+from algorithm.number import basic
 
 
 assert basic.factorial(0) == 1, "Wrong!"

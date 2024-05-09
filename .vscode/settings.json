@@ -3,6 +3,7 @@
     "networkx",
     "nlogn",
     "pathfinding",
-    "popleft"
+    "popleft",
+    "warshall"
   ]
 }

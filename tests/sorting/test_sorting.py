@@ -11,7 +11,8 @@ arr = list(sort_helper.random_integers(20000,5000))
 doctest.testmod()
 start = time.process_time()
 # sorted_arr = basic_sort.selection_sort(arr)
-sorted_arr = special_sort.count_sort(arr)
+sorted_arr = advanced_sort.merge_sort(arr)
+# sorted_arr = special_sort.count_sort(arr)
 
 
 print(f"Processing time: {(time.process_time() - start)%1e6} seconds")

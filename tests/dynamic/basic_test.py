@@ -1,4 +1,4 @@
-from algorithm.dynamic import basic
+from algorithm.number import basic
 
 
 

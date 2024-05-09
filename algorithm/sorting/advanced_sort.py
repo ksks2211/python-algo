@@ -47,3 +47,40 @@ def quick_sort(arr):
     
     return quick_sort(left)+middle+quick_sort(right)
   
+
+
+
+def _merge(left, right):
+  result = []
+  
+  i, j = len(left), len(right)
+  x, y = 0,0
+  while x < i  and y < j:
+    if left[x] < right[y]:
+      result.append(left[x])
+      x+=1
+    else:
+      result.append(right[y])
+      y+=1
+  
+  if x < i : result.extend(left[x:])        
+  if y < j : result.extend(right[y:])
+  
+  return result
+
+
+def merge_sort(arr):
+  
+  if len(arr)<=1 : return arr
+  
+  mid = len(arr)//2
+  
+  # divide
+  left = merge_sort(arr[:mid])
+  right = merge_sort(arr[mid:])
+  
+  # merge
+  return _merge(left, right)
+  
+  
+  
