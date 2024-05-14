@@ -4,7 +4,11 @@ def shape(matrix):
   return (n,m)
 
 def rotate(mat):
+  
+  # N x M 
   n,m = shape(mat)  
+  
+  # M x N 
   rotated_mat = [[0]*n for _ in range(m)]
   
   for i in range(n):

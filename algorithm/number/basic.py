@@ -1,9 +1,11 @@
 from collections import defaultdict
-
+import math
 
 # Factorial
 def factorial(n):
   if n==0 : return 1  
+  
+  # return math.factorial(n)
   return n * factorial(n-1)
 
 
@@ -42,4 +44,8 @@ def fibonacci2(n):
     dp[i] = dp[i-1] + dp[i-2]
   
   return dp[n]    
-  
+
+
+
+
+
