@@ -1,4 +1,4 @@
-from algorithm.graph.mst import kruskal
+from algorithm.graph.mst import kruskal, prim
 
 
 
@@ -19,4 +19,20 @@ edges = [
 vertices = [1,2,3,4,5,6,7]
 
 
-assert kruskal(edges, vertices) == 159, "Incorrect"
+
+
+graph = {
+  1 : [(2,29),(5,75)],
+  2 : [(3,35),(6,34), (1,29)],
+  3 : [(4,7), (2,35)],
+  4 : [(6,23),(7,13), (3,7)],
+  5 : [(6,53), (1,75)],
+  6 : [(7,25), (2,34), (4,23), (5,53)],
+  7 : [(4,13), (6,25)]
+}
+
+
+
+assert kruskal(edges, vertices) == prim(graph, vertices), "Incorrect"
+
+

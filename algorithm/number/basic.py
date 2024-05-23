@@ -46,6 +46,36 @@ def fibonacci2(n):
   return dp[n]    
 
 
+def fibonacci_range(n):
+  cur, prev = 1, 0
+  while cur < n:    
+    yield cur
+    cur, prev = cur+prev, cur
+  
 
 
+def is_prime(n:int):
+  for i in range(2, int(math.sqrt(n))+1):
+    if n % i == 0 : return False
+  return True    
+  
 
+def get_prime_numbers(n:int)  :
+    
+  if n < 2 : return []
+  
+        
+  arr = [True]*(n+1)  
+  limit = int(math.sqrt(n))+1
+  
+  
+  for i in range(2,limit):
+    # Prime number
+    if arr[i]:
+      m=2
+      while i*m <= n :
+        arr[i*m]= False
+        m+=1
+  
+  
+  return list(i for i in range(2,n+1) if arr[i])
