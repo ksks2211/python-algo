@@ -23,6 +23,8 @@ def kruskal(edges, vertices):
   
   return min_cost
 
+
+
 def prim(graph, vertices, start=1):
   
   
@@ -53,5 +55,4 @@ def prim(graph, vertices, start=1):
     
     
   return min_cost
-  
-  
+    
