@@ -79,3 +79,8 @@ def get_prime_numbers(n:int)  :
   
   
   return list(i for i in range(2,n+1) if arr[i])
+
+
+
+
+

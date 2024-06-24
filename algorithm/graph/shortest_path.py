@@ -1,7 +1,10 @@
 import heapq
 
+
+INF = float('infinity')
+
+
 def dijkstra(graph, start, end):
-  INF = 1e9  # float('infinity')
   
   distances = {
     v : INF for v in graph.keys()
@@ -17,16 +20,15 @@ def dijkstra(graph, start, end):
     
     
     for neighbor,weight  in graph[cur_vertex]:
-      dist = cur_dist + weight
+      new_dist = cur_dist + weight
                   
-      if dist < distances[neighbor]:        
-        distances[neighbor] = dist
-        heapq.heappush(q, (dist, neighbor))
+      if new_dist < distances[neighbor]:        
+        distances[neighbor] = new_dist
+        heapq.heappush(q, (new_dist, neighbor))
   
   return distances[end]    
 
 def dijkstra_path(graph, start,end):
-  INF = float('infinity')
 
   distances = {
     v : INF 
@@ -66,7 +68,6 @@ def dijkstra_path(graph, start,end):
   return path[::-1]         
               
 def floyd_warshall(edges, n):
-  INF = 1e9  # float('infinity')
   distances = [[INF]*(n+1) for _ in range(n+1)]
   
   for i in range(1,n+1):
@@ -74,14 +75,10 @@ def floyd_warshall(edges, n):
   
   for x,y,weight in edges:
     distances[x][y] = weight
-    
-  
-  for k in range(1,n+1):
-    for i in range(1,n+1):      
-      # if k == i : continue
       
+  for k in range(1,n+1):
+    for i in range(1,n+1):            
       for j in range(1,n+1):
-        # if j == k or j ==i : continue        
         distances[i][j] = min(distances[i][j], distances[i][k] + distances[k][j])
         
   return distances

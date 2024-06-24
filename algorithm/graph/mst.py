@@ -52,7 +52,6 @@ def prim(graph, vertices, start=1):
     
     for edge in graph[v]:
       heapq.heappush(A, (edge[1],edge[0]))
-    
-    
+        
   return min_cost
     
