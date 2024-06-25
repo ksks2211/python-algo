@@ -19,14 +19,49 @@
 
 
 
+def find(parent, x):
+  if parent[x] != x:
+    parent[x] = find(parent, parent[x])
+  return parent[x]
 
-def get_result(G, P, schedule):
+def union(parent, x, y):
+  xp = find(parent, x)
+  yp = find(parent, y)  
+  if xp < yp:
+    parent[yp] = xp
+  else:
+    parent[xp] = yp
+
+
+
+def get_result(G, schedule):
   
   
-  pass
+  parent = {  i : i for i in range(G + 1)}
+  
+  
+  count = 0
+  
+  
+  for plane in schedule:        
+    p = find(parent, plane)
+    if p == 0 : break
+    
+    count+=1         
+    union(parent, p, p-1)
+    
+  return count  
+    
+  
+  
 
 G = 4
-P = 3
 schedule = [4,1,1]
 
-print(get_result(G,P, schedule))
+print(get_result(G,schedule))
+
+
+G = 4
+
+schedule = [2,2,3,3,4,4]
+print(get_result(G,schedule))

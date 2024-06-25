@@ -27,11 +27,20 @@ def transpose(matrix):
 
 
  
- 
-
 
 def display(matrix):
   n,m = shape(matrix) 
   print(f'({n} rows, {m} columns)')
   for row in matrix:
     print(row)
+    
+    
+def select_rows(matrix, rows_idx):  
+  sub_matrix = [matrix[i][:] for i in rows_idx]
+  return sub_matrix    
+
+
+def select_cols(matrix, cols_idx):
+  sub_matrix = [ [ row[i] for i in cols_idx] for row in matrix]
+  
+  return sub_matrix
