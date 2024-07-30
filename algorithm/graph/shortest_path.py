@@ -6,31 +6,36 @@ INF = float('infinity')
 
 def dijkstra(graph, start, end):
   
-  distances = {
+  shortest_paths = {
     v : INF for v in graph.keys()
   }  
-  distances[start]=0
+  shortest_paths[start]=0
       
   q=[(0,start)]
       
   while q:
     cur_dist, cur_vertex = heapq.heappop(q)    
-    if distances[cur_vertex] < cur_dist : continue
     
+    # Pass
+    if shortest_paths[cur_vertex] < cur_dist : continue
     
-    
-    for neighbor,weight  in graph[cur_vertex]:
+        
+    for neighbor, weight in graph[cur_vertex]:
       new_dist = cur_dist + weight
-                  
-      if new_dist < distances[neighbor]:        
-        distances[neighbor] = new_dist
+      
+      # edge relaxation              
+      if new_dist < shortest_paths[neighbor]:        
+        shortest_paths[neighbor] = new_dist
         heapq.heappush(q, (new_dist, neighbor))
   
-  return distances[end]    
+  return shortest_paths[end]    
+
+
+
 
 def dijkstra_path(graph, start,end):
 
-  distances = {
+  shortest_paths = {
     v : INF 
     for v in graph.keys()
   }
@@ -41,19 +46,19 @@ def dijkstra_path(graph, start,end):
   }
   
   # 초기값
-  distances[start]=0
+  shortest_paths[start]=0
   q = [(0,start)]
   
   
   while q:
     cur_dist, cur_vertex = heapq.heappop(q)    
-    if distances[cur_vertex] < cur_dist : continue
+    if shortest_paths[cur_vertex] < cur_dist : continue
             
     for neighbor,weight  in graph[cur_vertex]:
       dist = cur_dist + weight
                   
-      if dist < distances[neighbor]:      
-        distances[neighbor] = dist
+      if dist < shortest_paths[neighbor]:      
+        shortest_paths[neighbor] = dist
         predecessors[neighbor] = cur_vertex
         heapq.heappush(q, (dist, neighbor))
   
